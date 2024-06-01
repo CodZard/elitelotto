@@ -1,0 +1,10 @@
+body{
+    box-sizing: border-box;
+    height: 100vh;
+    justify-content: center;
+    text-align: center;
+    background: rgba(4, 0, 255, 0.605);
+    color: white;
+    margin: 0;
+    padding: 0;
+}

